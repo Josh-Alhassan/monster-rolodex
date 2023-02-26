@@ -4,6 +4,7 @@ import "./App.css";
 
 class App extends Component {
   constructor() {
+    console.log("Constructor")
     super();
 
     this.state = {
@@ -12,6 +13,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    console.log("Component")
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
       .then((users) =>
@@ -27,8 +29,12 @@ class App extends Component {
   }
 
   render() {
+    console.log("Render")
     return (
       <div className="App">
+        <input className="search-box" type="search" placeholder="Search Monsters" onChange={(event) => {
+          console.log(event.target.value)
+        }} />
         {this.state.monsters.map((monster) => {
           return (
             <div key={monster.id}>
