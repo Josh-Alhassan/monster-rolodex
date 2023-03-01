@@ -25,15 +25,11 @@ class App extends Component {
           () => {
             return { monsters: users };
           },
-          () => {
-            console.log(this.state);
-          }
         )
       );
   }
 
   onSearchChange = (event) => {
-    console.log(event.target.value)
     const searchField = event.target.value.toLocaleLowerCase();
 
     this.setState(() => {
@@ -42,8 +38,6 @@ class App extends Component {
   }
 
   render() {
-    console.log("Render")
-
     // Desctructuring this.state
     const {monsters, searchField} = this.state;
     const {onSearchChange} = this;
@@ -59,15 +53,7 @@ class App extends Component {
         placeholder="Search Monsters"
         onChange={onSearchChange} />
 
-        <CardList />
-
-        {/* {filteredMonsters.map((monster) => {
-          return (
-            <div key={monster.id}>
-              <h1>{monster.name}</h1>
-            </div>
-          );
-        })} */}
+      <CardList monsters={filteredMonsters} />
       </div>
     );
   }
