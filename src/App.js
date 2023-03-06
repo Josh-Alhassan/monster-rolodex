@@ -10,12 +10,17 @@ import "./App.css";
 const App = () => {
   console.log('render')
   const [searchField, setSearchField] = useState("");
+  const [monsters, setMonsters] = useState([]);
   console.log(searchField);
 
   const onSearchChange = (event) => {
     const searchFieldString = event.target.value.toLowerCase();
     setSearchField(searchFieldString);
   };
+
+  const filteredMonsters = monsters.filter((monster) => {
+    return monster.name.toLocaleLowerCase().includes(searchField);
+  });
 
   return (
     <div className="App">
@@ -27,7 +32,7 @@ const App = () => {
         onChange={onSearchChange}
       />
 
-      {/* <CardList monsters={filteredMonsters} /> */}
+      <CardList monsters={filteredMonsters} />
     </div>
   );
 };
