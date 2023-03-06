@@ -8,26 +8,29 @@ import SearchBox from "./components/search-box/search-box.component";
 import "./App.css";
 
 const App = () => {
-  const [searchField, setSearchField] = useState('');
+  console.log('render')
+  const [searchField, setSearchField] = useState("");
+  console.log(searchField);
 
   const onSearchChange = (event) => {
-    const searchFieldString = event.target.value.toLocaleLowerCase();
-    setSearchField(searchFieldString)
-  }
+    const searchFieldString = event.target.value.toLowerCase();
+    setSearchField(searchFieldString);
+  };
 
   return (
     <div className="App">
       <h1 className="app-title">Monster Rolodex</h1>
 
-      <SearchBox 
-        className="search-box"
+      <SearchBox
+        className="monsters-search-box"
         placeholder="Search Monsters"
-        onChange={onSearchChange} />
+        onChange={onSearchChange}
+      />
 
       {/* <CardList monsters={filteredMonsters} /> */}
-      </div>
-  )
-}
+    </div>
+  );
+};
 
 // class App extends Component {
 //   constructor() {
@@ -73,7 +76,7 @@ const App = () => {
 //       <div className="App">
 //         <h1 className="app-title">Monster Rolodex</h1>
 
-//         <SearchBox 
+//         <SearchBox
 //         className="search-box"
 //         placeholder="Search Monsters"
 //         onChange={onSearchChange} />
